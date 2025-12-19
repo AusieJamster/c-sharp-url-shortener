@@ -1,0 +1,14 @@
+@HostAddress = http://localhost:5229
+
+### 1. Shorten a URL
+POST {{HostAddress}}/api/shorten
+Content-Type: application/json
+
+{
+  "url": "https://www.google.com"
+}
+
+### 2. Get the Redirect (Replace {shortCode} with the code from above)
+@shortCode = REPLACE_WITH_CODE_FROM_ABOVE
+GET {{HostAddress}}/api/{{shortCode}}
+Accept: application/json
